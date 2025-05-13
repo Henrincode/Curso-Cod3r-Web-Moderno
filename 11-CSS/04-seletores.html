@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Selectors</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+        /* 
+        universal - seleciona todos os elementos
+        * {}
+
+        classe - seleciona elementos com a classe "tag"
+        .tag {}
+
+        id - seleciona o elemento com id "aprovados"
+        #aprovados {}
+
+        filho direto - div dentro de #aninhado
+        #aninhado>div {}
+
+        filho direto - section dentro de #aninhado
+        #aninhado>section {}
+
+        descendente - section dentro de #aninhado em qualquer nível
+        #aninhado section {}
+
+        adjacente - ul imediatamente depois de p
+        p+ul {}
+
+        adjacente - ol imediatamente depois de p
+        p+ol {}
+
+        irmão geral - ol após p, no mesmo nível
+        p~ol {}
+
+        atributo - seleciona elementos com o atributo "feira"
+        [feira] {}
+
+        atributo igual - atributo feira com valor "casa"
+        [feira=casa] {}
+
+        ~= seleciona palavra e tem que ter espaço no final
+        [feira~=escritorio] {}
+
+        *= seleciona contendo letras
+        [feira*=as] {}
+
+        seleciona o primeiro filho, se for uma tag <span>
+        span:nth-child(1) {}
+
+        seleciona os filhos ímpares diretos de "selection"
+        selection > :nth-child(odd) {}
+
+        seleciona os filhos pares diretos de "selection"
+        selection > :nth-child(even) {}
+
+        múltiplos seletores - aplica para filhos ímpares de "selection", <ul> e <p>
+        selection > :nth-child(odd), ul, p {}
+
+        seleciona <label> dentro de filhos ímpares diretos de "selection"
+        selection > :nth-child(odd) label {}
+
+        seleciona o segundo <span> direto dentro de "selection"
+        selection > span:nth-of-type(2) {}
+        */
+
+        /* * {
+            color: #ff0;
+            background-color: #f77;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class='tag'>
+        <div class='tag'>
+            <p class='tag'>1</p>
+            <ul class='tag' feira='casa'>
+                <li>Arroz</li>
+                <li>Feijão</li>
+            </ul>
+            <ul class='tag' feira='escritorio empresa'>
+                <li>Café</li>
+                <li>Água</li>
+            </ul>
+            <ol id='aprovados' class='tag'>
+                <li>Maria</li>
+                <li>Pedro</li>
+                <li>Ana</li>
+            </ol>
+            <div id='aninhado' class='tag'>
+                <div class="tag">
+                    <section class='tag nolabel'>
+                        <span class='tag'>1</span>
+                        <p class='tag'>2</p>
+                        <span class='tag'>3</span>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/tag.js"></script>
+</body>
+
+</html>
