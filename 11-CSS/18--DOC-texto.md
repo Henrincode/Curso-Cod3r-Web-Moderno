@@ -146,12 +146,6 @@
 
 # 📘 O que foi aprendido:
 
-### 🧾 **O que é HTML?**
-
-HTML (HyperText Markup Language) é a **linguagem de marcação** usada para estruturar conteúdos na web. Com HTML, criamos elementos como **títulos, parágrafos, imagens, links, listas, formulários**, entre outros.
-
----
-
 ### ✍️ **Manipulando texto com CSS**
 
 O CSS (Cascading Style Sheets) nos permite personalizar **a aparência dos textos** no HTML com vários estilos e formatos.

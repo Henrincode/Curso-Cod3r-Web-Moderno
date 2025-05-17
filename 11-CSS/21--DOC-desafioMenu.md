@@ -205,14 +205,6 @@
 
 # 📘 O que foi aprendido com esse código
 
----
-
-### 🧱 **O que é HTML?**
-
-O **HTML** (HyperText Markup Language) é a linguagem usada para criar a estrutura de páginas na web. Com ele, organizamos elementos como títulos, parágrafos, imagens, menus, formulários e muito mais.
-
----
-
 ### 🎯 **Objetivo do Código**
 
 Este desafio foi feito para **praticar a criação de um cabeçalho responsivo**, com:
