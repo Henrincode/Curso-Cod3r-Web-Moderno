@@ -1,8 +1,4 @@
-Claro! Vamos seguir o mesmo padrão do modelo que você forneceu. Primeiro, trago o **código com os comentários corrigidos e melhorados**, depois farei a explicação com títulos e emojis.
-
----
-
-# ✅ Código com Comentários Corrigidos
+# ✅ Código com Comentários:
 
 ```html
 <!DOCTYPE html>
@@ -118,14 +114,6 @@ Claro! Vamos seguir o mesmo padrão do modelo que você forneceu. Primeiro, trag
 ---
 
 # 📘 O que foi aprendido com esse código
-
----
-
-### 🧱 **O que é HTML?**
-
-O **HTML** (HyperText Markup Language) é a linguagem usada para estruturar páginas na web. Com ela, organizamos elementos como títulos, parágrafos, imagens e divisões de conteúdo (como cards).
-
----
 
 ### 🎯 **Objetivo do Código**
 
