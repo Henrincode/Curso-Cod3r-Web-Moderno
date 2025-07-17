@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #01</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo">.terceiro .ultimo</div>
+    <script>
+        // Seleciona o elemento com o id "primeiro" e adiciona a classe "destaque" a ele
+        document.getElementById('primeiro').classList.add('destaque')
+
+        // Seleciona todos os elementos <div> da página (retorna um HTMLCollection)
+        const divs = document.getElementsByTagName('div')
+
+        // Converte o HTMLCollection em um array e remove a classe "destaque" de cada <div>
+        Array.from(divs).forEach(div => div.classList.remove('destaque'))
+
+        // Outra forma de converter HTMLCollection em array, usando spread operator [...]
+        const divsArray = [...divs]
+
+        // Adiciona a classe "destaque" novamente para cada <div>
+        divsArray.forEach(div => div.classList.add('destaque'))
+
+        // Seleciona todos os elementos com a classe "ultimo"
+        const ultimosElementos = document.getElementsByClassName('ultimo')
+
+        // Percorre esses elementos e remove a classe "destaque" de cada um
+        for (let e of ultimosElementos) {
+            e.classList.remove('destaque')
+        }
+    </script>
+
+</body>
+
+</html>
