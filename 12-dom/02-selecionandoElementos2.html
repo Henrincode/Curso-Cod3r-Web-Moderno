@@ -1,16 +1,62 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Selecionar Elementos #02</title>
     <link rel="stylesheet" href="css/estilo.css">
 </head>
+
 <body class="conteudo exercicio">
     <div id="primeiro">#primeiro</div>
     <div>Segundo</div>
     <div class="terceiro ultimo"><span wb-attrib>.terceiro .ultimo</span></div>
-    <script>              
-        // ...
+    <script>
+        // Adiciona a classe 'destaque' ao elemento com id 'primeiro'
+        document.querySelector('#primeiro').classList.add('destaque')
+
+        // Função 'selecionar' que adiciona a classe 'destaque' a todos os elementos que combinam com o seletor CSS passado
+        const selecionar = seletor =>
+            document.querySelectorAll(seletor).forEach(e => e.classList.add('destaque'))
+
+        // Função 'deselecionar' que remove a classe 'destaque' de todos os elementos que combinam com o seletor CSS passado
+        const deselecionar = seletor =>
+            document.querySelectorAll(seletor).forEach(e => e.classList.remove('destaque'))
+
+        // Adiciona a classe 'destaque' a todas as <div> da página
+        selecionar('div')
+
+        // Remove a classe 'destaque' de todos os elementos do DOM
+        deselecionar('*')
+
+        // Adiciona a classe 'destaque' apenas ao elemento que tem ambas as classes 'terceiro' e 'ultimo'
+        selecionar('.terceiro.ultimo')
+
+        // Remove a classe 'destaque' de todos os elementos novamente
+        deselecionar('*')
+
+        // Adiciona a classe 'destaque' a todos os elementos que NÃO têm o id 'primeiro'
+        selecionar(':not(#primeiro)')
+
+        // Remove a classe 'destaque' de todos os elementos novamente
+        deselecionar('*')
+
+        // Adiciona a classe 'destaque' ao primeiro filho de qualquer elemento pai
+        selecionar(':nth-child(1)')
+
+        // Remove a classe 'destaque' de todos os elementos novamente
+        deselecionar('*')
+
+        // Adiciona a classe 'destaque' ao primeiro elemento <div> dentro do seu tipo entre os filhos do pai
+        selecionar('div:nth-of-type(1)')
+
+        // Remove a classe 'destaque' de todos os elementos novamente
+        deselecionar('*')
+
+        // Adiciona a classe 'destaque' a todos os elementos que possuem o atributo personalizado 'wb-attrib'
+        selecionar('[wb-attrib]')
     </script>
+
 </body>
+
 </html>
