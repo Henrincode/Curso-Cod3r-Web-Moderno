@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #04</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body class="conteudo exercicio">
+    <div>
+        <p>Início</p>
+    </div>
+    <div>
+        <ul>
+            <li>Pedro</li>
+            <li>Ana</li>
+            <li>Bia</li>
+        </ul>
+    </div>
+    <div>
+        <p>Fim</p>
+    </div>
+    <script>
+        // Função que imprime no console o contexto (`this`) onde foi chamada
+        function log() {
+            console.log(this)
+        }
+
+        // Adiciona a função log ao protótipo de HTMLCollection
+        HTMLCollection.prototype.log = log
+        // Adiciona a função log ao protótipo de HTMLElement
+        HTMLElement.prototype.log = log
+        // Adiciona a função log ao protótipo de NodeList
+        NodeList.prototype.log = log
+        // Adiciona a função log ao protótipo de Node (elemento genérico do DOM)
+        Node.prototype.log = log
+
+        // Seleciona a `<ul>` que está dentro de uma `<div>`
+        const lista = document.querySelector('div ul')
+
+        // Mostra no console o nó pai da lista (`div`)
+        lista.parentNode.log()
+
+        // Mostra todos os nós filhos da lista (inclui texto, comentários e elementos)
+        lista.childNodes.log()
+
+        // Pega o primeiro nó filho da lista (pode ser texto ou elemento)
+        const primeiro = lista.firstChild
+        primeiro.log() // Mostra o primeiro filho
+        primeiro.nextSibling.log() // Mostra o próximo irmão do primeiro filho
+
+        // Pega o último nó filho da lista
+        const ultimo = lista.lastChild
+        ultimo.log() // Mostra o último filho
+        ultimo.previousSibling.log() // Mostra o irmão anterior ao último filho
+
+        // Mostra somente os elementos filhos da lista (exclui nós de texto, comentários etc.)
+        lista.children.log()
+
+        // Mostra o primeiro filho que é um elemento (ignora nós de texto)
+        lista.firstElementChild.log()
+
+        // Mostra o irmão anterior do elemento pai da lista
+        lista.parentNode.previousElementSibling.log()
+
+        // Mostra o próximo irmão do elemento pai da lista
+        lista.parentNode.nextElementSibling.log()
+
+        // Seleciona todos os itens da lista (`li`) dentro da `<ul>` e mostra todos
+        document.querySelectorAll('div ul li').log()
+    </script>
+</body>
+
+</html>
