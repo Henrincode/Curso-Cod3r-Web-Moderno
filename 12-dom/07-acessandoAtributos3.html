@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #03</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <ul id="compras" destino='escritório' data-urgencia="5">
+            <li>Café</li>
+            <li>Água</li>
+            <li>Copo Descartável</li>
+        </ul>
+    </div>
+    <script>
+        // Seleciona o elemento HTML com o id "compras" e armazena na constante 'lista'
+        const lista = document.querySelector('#compras')
+
+        // Exibe todos os atributos do elemento selecionado (em forma de NamedNodeMap, semelhante a um array)
+        // Exemplo: id="compras" destino="casa" data-urgencia="alta"
+        // Essa é uma forma de acesso SOMENTE LEITURA — não é possível alterar os valores por aqui
+        console.log(lista.attributes)
+
+        // Acessa e exibe o primeiro atributo da lista (índice 0), que normalmente será o id
+        console.log(lista.attributes[0])
+
+        // Acessa e exibe diretamente o atributo 'id' usando a notação de ponto
+        console.log(lista.attributes.id)
+
+        // Acessa e exibe o segundo atributo da lista (índice 1), que pode ser um atributo personalizado
+        console.log(lista.attributes[1])
+
+        // Acessa e exibe diretamente o atributo 'destino' usando a notação de ponto
+        console.log(lista.attributes.destino)
+
+        // Acessa e exibe o terceiro atributo da lista (índice 2), outro atributo personalizado
+        console.log(lista.attributes[2])
+
+        // Acessa o atributo personalizado 'data-urgencia' usando notação de colchetes com string
+        // É necessário usar colchetes pois o hífen (-) não é permitido em nomes de propriedades com a notação de ponto
+        console.log(lista.attributes['data-urgencia'].value = 111)
+    </script>
+
+</body>
+
+</html>
