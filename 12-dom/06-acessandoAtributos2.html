@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <label for="compras">Compras</label>
+        <ul id="compras" destino='escritório' data-urgencia="5">
+            <li>Café</li>
+            <li>Água</li>
+            <li>Copo Descartável</li>
+        </ul>
+    </div>
+    <script>
+        // Seleciona o elemento <ul> que possui o atributo destino="escritório"
+        const lista = document.querySelector('div ul[destino="escritório"]')
+
+        // Exibe no console o texto identificando o elemento
+        console.log('Elemento "ul"..........')
+
+        // Mostra todos os nós filhos do elemento <ul>
+        console.log('childNodes', lista.childNodes)
+
+        // Tenta acessar a propriedade 'destino' diretamente (não funciona para atributos customizados)
+        console.log('destino', lista.destino)
+
+        // Obtém o valor do atributo 'destino' via getAttribute
+        console.log('getAttribute', lista.getAttribute('destino'))
+
+        // Verifica se o atributo 'destino' existe no elemento
+        console.log('hasAttribute', lista.hasAttribute('destino'))
+
+        // Altera o valor do atributo 'destino' para 'empresa'
+        lista.setAttribute('destino', 'empresa')
+
+        // Adiciona um novo atributo 'status' com valor 'aberto'
+        lista.setAttribute('status', 'aberto')
+
+        // Remove o atributo 'destino' do elemento
+        lista.removeAttribute('destino')
+
+        // Exibe o valor do atributo data-urgencia usando a propriedade dataset
+        console.log(lista.dataset.urgencia)
+
+        // Altera o valor do atributo data-urgencia para 4
+        lista.dataset.urgencia = 4
+
+        // Exibe o valor do atributo data-urgencia usando getAttribute
+        console.log(lista.getAttribute('data-urgencia'))
+
+        // cuidado: propriedades de atributos padrões podem ter nomes diferentes
+        // Seleciona o elemento <label>
+        const label = document.querySelector('label')
+
+        // Tenta acessar a propriedade 'for' diretamente (undefined em JS)
+        console.log(label.for)
+
+        // Acessa a propriedade correta 'htmlFor' do label
+        console.log(label.htmlFor)
+
+        // Obtém o valor do atributo 'for' via getAttribute
+        console.log(label.getAttribute('for'))
+    </script>
+</body>
+
+</html>
