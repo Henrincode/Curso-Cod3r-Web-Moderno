@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <script>
+        // Seleciona o elemento <body> do documento
+        const body = document.querySelector('body')
+
+        // Cria uma nova <div>
+        const div1 = document.createElement('div')
+        // Adiciona a classe 'destaque' à div
+        div1.classList.add('destaque')
+        // Define o conteúdo de texto da div
+        div1.innerHTML = 'Primeiro'
+
+        // Cria uma segunda <div>
+        const div2 = document.createElement('div')
+        // Define um atributo personalizado chamado 'wm-atributo' com valor 'valor'
+        div2.setAttribute('wm-atributo', 'valor')
+        // Define o conteúdo da segunda div
+        div2.innerHTML = 'Segundo'
+
+        // Cria um elemento <p>
+        const p = document.createElement('p')
+        // Define o conteúdo do parágrafo
+        p.innerHTML = 'Terceiro'
+
+        // Cria uma terceira <div>
+        const div3 = document.createElement('div')
+        // Adiciona o <p> como filho da terceira div
+        div3.appendChild(p)
+
+        // Adiciona as três divs criadas ao <body>
+        body.appendChild(div1)
+        body.appendChild(div2)
+        body.appendChild(div3)
+
+        // Cria um nó de texto com o conteúdo 'Antes...'
+        const texto = document.createTextNode('Antes...')
+        // Insere esse texto como o primeiro filho da div3 (antes do <p>)
+        div3.insertBefore(texto, div3.childNodes[0])
+
+        // Clona a div3 (com todos os seus filhos) e guarda como div4
+        const div4 = div3.cloneNode(true)
+        // Adiciona a div clonada ao final do <body>
+        body.appendChild(div4)
+        // Remove a div original (div3) do <body>
+        body.removeChild(div3)
+    </script>
+
+</body>
+
+</html>
