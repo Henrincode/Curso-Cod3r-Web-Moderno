@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Classes</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        Classes
+    </div>
+    <script>
+        // Seleciona a primeira <div> do documento
+        const div = document.querySelector('div')
+
+        // Acessa a lista de classes CSS dessa <div>
+        const classes = div.classList
+
+        // Adiciona a classe 'destaque' à <div>
+        classes.add('destaque')
+
+        // Remove a classe 'destaque' da <div>
+        classes.remove('destaque')
+
+        // Alterna a existência da classe 'destaque'
+        // Se a classe estiver presente, ela será removida
+        // Se estiver ausente, será adicionada
+        classes.toggle('destaque')
+
+        // Verifica se a classe 'destaque' está presente na <div>
+        console.log(classes.contains('destaque'))
+
+        // Mostra a quantidade de classes atribuídas à <div>
+        console.log(classes.length)
+
+        // Alterna novamente a classe 'destaque' (deve removê-la se ainda estiver)
+        classes.toggle('destaque')
+
+        // Mostra novamente a quantidade de classes atuais
+        console.log(classes.length)
+
+        // Laço for...of percorre todas as classes da <div> e imprime no console
+        for (let c of classes) {
+            console.log(c)
+        }
+
+        // Alternativa ao for...of: usa forEach para iterar pelas classes e imprimir
+        classes.forEach(c => console.log(c))
+    </script>
+
+</body>
+
+</html>
