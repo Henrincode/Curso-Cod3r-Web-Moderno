@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <p>Texto Inicial</p>
+    </div>
+    <script>
+        // Seleciona a primeira <div> do documento
+        const div = document.querySelector('div')
+
+        // Substitui todo o conteúdo interno da <div> por texto simples
+        div.innerHTML = 'Texto Alterado'
+
+        // Se essa linha estivesse ativa, substituiria *toda a div*, incluindo a própria tag <div>, pelo texto
+        // div.outerHTML = 'Texto Alterado'
+
+        // Insere HTML imediatamente ANTES da tag <div> (fora da div)
+        div.insertAdjacentHTML('beforebegin', '<p>Antes Início</p>')
+
+        // Insere HTML logo após o início da <div> (como primeiro filho)
+        div.insertAdjacentHTML('afterbegin', '<p>Depois Início</p>')
+
+        // Insere HTML imediatamente ANTES do fim da <div> (como último filho)
+        div.insertAdjacentHTML('beforeend', '<p>Antes do Fim</p>')
+
+        // Insere HTML imediatamente DEPOIS da tag </div> (fora da div)
+        div.insertAdjacentHTML('afterend', '<p>Depois Fim')
+
+        // Exibe no console apenas o texto visível da <div>, sem incluir as tags HTML
+        console.log(div.innerText)
+    </script>
+
+</body>
+
+</html>
