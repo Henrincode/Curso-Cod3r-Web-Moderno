@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <a href='https://www.cod3r.com.br'>Cod3r</a>
+    </div>
+    <div id='primeiro'>
+        <img src='http://files.cod3r.com.br/curso-web/logo-estreita.png' alt='logo'>
+    </div>
+    <script>
+        // Seletores CSS básicos:
+        // img             - seleciona elementos pela tag <img>
+        // .img            - seleciona elementos pela classe "img"
+        // #img            - seleciona elemento pelo id "img"
+        // [src]           - seleciona elementos que possuem o atributo "src" (pode ser atributo padrão ou personalizado)
+        // [data-exemplo]  - boa prática para atributos personalizados, usando prefixo "data-"
+
+        // Seleciona o primeiro elemento <img> do documento
+        const img = document.querySelector('img')
+
+        // Mostra o valor do atributo "src" usando getAttribute (retorna exatamente o que está no HTML)
+        console.log('getAttribute', img.getAttribute('src'))
+
+        // Mostra o valor da propriedade "src" do DOM (URL completa, resolvida)
+        console.log('src', img.src)
+
+        // Acessa a propriedade "src" do objeto img via notação de colchetes
+        console.log('["src"]', img['src'])
+
+        // Mostra o valor da propriedade "alt" (texto alternativo da imagem)
+        console.log('alt', img.alt)
+
+        // Informações sobre o elemento <img> no DOM
+        console.log('Elemento "img"................')
+
+        // Tipo do nó, onde 1 = ELEMENT_NODE
+        console.log('NodeType', img.nodeType)
+
+        // Nome do nó, no caso "IMG" (sempre maiúsculo para elementos)
+        console.log('NodeName', img.nodeName)
+
+        // Pega o objeto do atributo "src" (um Attr node)
+        const src = img.getAttributeNode('src')
+
+        console.log('Atributo "src"................')
+
+        // Tipo do nó do atributo (2 = ATTRIBUTE_NODE)
+        console.log('NodeType', src.nodeType)
+
+        // Nome do nó do atributo, aqui "src"
+        console.log('NodeName', src.nodeName)
+
+        // Valor do atributo, ex: "imagem.jpg"
+        console.log('NodeValue', src.nodeValue)
+
+        // Seleciona o primeiro elemento <a> do documento
+        const link = document.querySelector('a')
+
+        console.log('Elemento "a"................')
+
+        // Mostra o valor completo do href (URL absoluta)
+        console.log('href', link.href)
+
+        // Mostra o tipo do primeiro nó filho do link
+        console.log('firstChild.nodeType', link.firstChild.nodeType)
+
+        // Altera o valor do nó texto do primeiro filho (se existir e for nó de texto)
+        link.firstChild.nodeValue = 'Novo Texto'
+        // Essa abordagem funciona apenas se o primeiro filho do elemento for um nó de texto.
+        // Pode gerar erros ou resultados inesperados se a estrutura do DOM mudar.
+
+        // Forma recomendada para alterar o texto de um elemento:
+        // link.textContent = 'Novo Texto'
+        // Altera todo o texto do elemento, incluindo texto oculto pelo CSS.
+        // É simples, seguro e eficiente.
+
+        // Outra opção:
+        // link.innerText = 'Novo Texto'
+        // Altera o texto visível, respeitando estilos CSS como display:none ou visibility:hidden.
+        // Note que 'display: block' não impede que innerText funcione, pois apenas altera o layout.
+
+        // Para inserir conteúdo HTML (não apenas texto), use:
+        // link.innerHTML = '<strong>Novo Texto em negrito</strong>'
+        // Permite inserir tags HTML, mas cuidado ao usar com conteúdo dinâmico para evitar vulnerabilidades (XSS).
+    </script>
+
+</body>
+
+</html>
