@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <div>
+        <!-- O evento onclick foi comentado para não ser usado diretamente na tag -->
+        <!-- onclick="navegarEm5s(event)" -->
+        <!-- Link com um atributo personalizado 'espera-um-pouco', indicando que terá um tratamento especial via JavaScript -->
+        <a espera-um-pouco href="https://google.com.br">Google</a>
+    </div>
+
+    <script>
+        // Função que será chamada quando o link for clicado
+        function navegarEm5s(e) {
+            // Impede o comportamento padrão do clique no link (navegar imediatamente)
+            e.preventDefault()
+
+            // Exibe uma mensagem no console para indicar que o redirecionamento acontecerá após 5 segundos
+            console.log('Saindo em 5s')
+
+            // Aguarda 5 segundos (5000 milissegundos) antes de redirecionar para o link
+            setTimeout(() => {
+                // Obtém o elemento HTML que disparou o evento (neste caso, o <a>)
+                const link = e.target
+
+                // Altera o endereço da janela do navegador para o valor do atributo href do link
+                window.location.href = link.href
+            }, 5000)
+        }
+
+        // Seleciona o elemento <a> que possui o atributo personalizado 'espera-um-pouco'
+        const a = document.querySelector('[espera-um-pouco]')
+
+        // Associa a função 'navegarEm5s' ao evento de clique no link
+        a.onclick = navegarEm5s
+    </script>
+</body>
