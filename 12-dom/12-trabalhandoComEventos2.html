@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <div>Elemento</div>
+    <script>
+        // Seleciona o elemento <div> da página
+        const item = document.querySelector('div')
+
+        // Define a posição do elemento como absoluta para que ele possa ser movido livremente na tela
+        item.style.position = 'absolute'
+
+        // Associa uma função ao evento de movimento do mouse sobre o elemento
+        item.onmousemove = e => {
+            // Altera o cursor para o estilo 'move' (indicando que o item pode ser arrastado)
+            item.style.cursor = 'move'
+
+            // Verifica se algum botão do mouse está pressionado durante o movimento
+            if (e.buttons) {
+                // Pega o elemento que disparou o evento (nesse caso, a própria div)
+                const item = e.target
+
+                // Atualiza a posição vertical do elemento, centralizando em relação ao cursor do mouse
+                item.style.top = `${e.clientY - (item.clientHeight / 2)}px`
+
+                // Atualiza a posição horizontal do elemento, centralizando em relação ao cursor do mouse
+                item.style.left = `${e.clientX - (item.clientWidth / 2)}px`
+            }
+        }
+    </script>
+
+</body>
