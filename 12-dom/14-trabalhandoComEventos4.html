@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #04</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form input,
+        form select,
+        form button {
+            margin: 10px;
+            font-size: 1.6em;
+        }
+    </style>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Formulário</h1>
+    <form name="pesquisa" action="http://www.google.com.br/search">
+        <input type="text" name="q" placeholder="Digite o termo...">
+        <select name="hl">
+            <option value="pt-br">Português (Brasil)</option>
+            <option value="en-us">Inglês (Americano)</option>
+        </select>
+        <button wm-submit>Pesquisar</button>
+    </form>
+    <script>
+        // const submit = document.querySelector('[wm-submit]')
+        // submit.onclick = function (e) {
+        //     e.preventDefault()
+
+        //     const form = e.target.parentNode
+        //     const formData = new FormData(form)
+        //     formData.append('ajax', true)
+        //     console.log(formData.get('q'))
+        //     console.log(formData.has('hl'))
+
+        //     for (let dado of formData) {
+        //         console.log(dado)
+        //     }
+        // }
+
+
+        // Seleciona o primeiro formulário da página
+        const form = document.forms[0]
+
+        // Adiciona um evento para interceptar o envio (submit) do formulário
+        form.onsubmit = function (e) {
+            // Impede o comportamento padrão de envio do formulário (ou seja, ele não recarrega a página)
+            e.preventDefault()
+
+            // `e.target` é o próprio formulário (formulário que disparou o evento)
+            const form = e.target
+
+            // Cria um objeto FormData contendo todos os dados do formulário
+            const formData = new FormData(form)
+
+            // Adiciona um novo campo chamado 'ajax' com o valor `true` ao objeto FormData
+            formData.append('ajax', true)
+
+            // Exibe no console o valor do campo com nome 'q' (ex: campo de pesquisa)
+            console.log(formData.get('q'))
+
+            // Verifica se existe um campo com o nome 'hl' no formulário (retorna true ou false)
+            console.log(formData.has('hl'))
+
+            // Percorre todos os pares [chave, valor] contidos no FormData e imprime cada um
+            for (let dado of formData) {
+                console.log(dado)
+            }
+        }
+    </script>
+</body>
