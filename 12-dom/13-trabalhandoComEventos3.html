@@ -1,0 +1,91 @@
+</html>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #03</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+        }
+
+        .esquerda {
+            height: 100vh;
+            width: 50%;
+            background-color: coral;
+        }
+
+        .direita {
+            height: 100vh;
+            width: 50%;
+            background-color: cornflowerblue;
+        }
+
+        .item {
+            border: solid 5px black;
+            background-color: darkgrey;
+            color: white;
+            height: 100px;
+            font-size: 40px;
+            margin: 10px;
+            vertical-align: middle;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="esquerda" wm-dropzone>
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+    </div>
+    <div class="direita" wm-dropzone></div>
+    <script>
+        // Seleciona todos os elementos com a classe "item" que estão dentro de qualquer container com o atributo personalizado [wm-dropzone]
+        const items = document.querySelectorAll('[wm-dropzone] .item')
+
+        // Para cada item encontrado, vamos torná-lo arrastável
+        items.forEach((item, index) => {
+            // Ativa o comportamento de "arrastável" (drag and drop)
+            item.draggable = true
+
+            // Garante que cada item tenha um ID único, criando um caso ele não exista
+            item.id = item.id || `draggable-item-${index}`
+
+            // Evento chamado quando o arrasto começa (dragstart)
+            item.ondragstart = e =>
+                // Define no objeto dataTransfer o ID do item arrastado para poder recuperá-lo depois
+                e.dataTransfer.setData('item-id', e.target.id)
+        })
+
+        // Seleciona todas as zonas de drop (locais onde é possível soltar os itens arrastados)
+        const dropzones = document.querySelectorAll('[wm-dropzone]')
+
+        dropzones.forEach(dropzone => {
+            // Impede o comportamento padrão (que geralmente bloqueia o drop)
+            dropzone.ondragover = e => e.preventDefault()
+
+            // Evento chamado quando o item é solto (drop)
+            dropzone.ondrop = function (e) {
+                // Recupera o ID do item que foi arrastado
+                const id = e.dataTransfer.getData('item-id')
+
+                // Seleciona o elemento DOM com esse ID
+                const item = document.getElementById(id)
+
+                // Adiciona o item dentro da zona de drop alvo
+                dropzone.appendChild(item)
+
+                // OBS: Se quiser permitir soltar apenas diretamente nas zonas e não dentro de outros elementos filhos, 
+                // deve-se verificar `e.target` aqui.
+            }
+        })
+    </script>
+
+</body>
+
+</html>
