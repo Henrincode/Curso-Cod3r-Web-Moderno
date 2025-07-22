@@ -187,3 +187,24 @@ function FlappyBird() {
 
 // Cria e inicia o jogo
 new FlappyBird().start()
+
+
+// Adiciona controle por toque de tela (mobile)
+window.addEventListener('touchstart', () => {
+    const eventoEspaco = new KeyboardEvent('keydown', { code: 'Space' })
+    window.dispatchEvent(eventoEspaco)
+})
+
+window.addEventListener('touchend', () => {
+    const eventoEspaco = new KeyboardEvent('keyup', { code: 'Space' })
+    window.dispatchEvent(eventoEspaco)
+})
+
+// Adiciona botão para reiniciar o jogo
+const btnReiniciar = document.createElement('button')
+btnReiniciar.id = 'btn-reiniciar'
+btnReiniciar.innerText = 'Reiniciar'
+
+btnReiniciar.onclick = () => location.reload()
+
+document.querySelector('[wm-flappy]').appendChild(btnReiniciar)
